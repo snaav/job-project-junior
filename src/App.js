@@ -23,18 +23,17 @@ export default class App extends Component {
       title: this.state.item
     };
     const updatedItems = [...this.state.items, newItem];
-    this.setState(
-      {
-        items: updatedItems,
-        item: "",
-        id: uuid(),
-        editItem: false
-      },
-      () => console.log(this.state)
-    );
+    this.setState({
+      items: updatedItems,
+      item: "",
+      id: uuid(),
+      editItem: false
+    });
   };
   clearList = () => {
-    console.log("clear list ");
+    this.setState({
+      items: []
+    });
   };
   handleDelete = id => {
     console.log(`handle delete ${id}`);
@@ -42,6 +41,7 @@ export default class App extends Component {
   handleEdit = id => {
     console.log(`handle edit ${id}`);
   };
+
   render() {
     return (
       <div className="container">
@@ -57,7 +57,7 @@ export default class App extends Component {
 
             <TodoList
               items={this.state.items}
-              clearList={this.state.clearList}
+              clearList={this.clearList}
               handleDelete={this.handleDelete}
               handleEdit={this.handleEdit}
             ></TodoList>
