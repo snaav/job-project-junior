@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class TodoInput extends Component {
   render() {
-    const { item, handleChange, handleSubmit, editItem } = this.props;
+    const { kwota, item, handleChange, handleSubmit, editItem } = this.props;
     return (
       <div className="card card-body my-3">
         <form onSubmit={handleSubmit}>
@@ -14,22 +14,39 @@ export default class TodoInput extends Component {
             </div>
             <input
               type="text"
+              name="item"
               className="form-control text-capitalize"
-              placeholder="add todo item"
+              placeholder="Nazwa zadania"
               value={item}
               onChange={handleChange}
             />
           </div>
+          <div className="input-group mt-3">
+            <div className="input-group-prepend">
+              <div className="input-group-text bg-primary text-white">
+                <i className="fas fa-book"></i>
+              </div>
+            </div>
+            <input
+              type="number"
+              name="kwota"
+              className="form-control text-capitalize"
+              placeholder="Kwota w PLN"
+              value={kwota}
+              onChange={handleChange}
+            />
+          </div>
+
           <button
             type="submit"
-            disabled={item ? false : true}
+            // disabled={kwota && item ? false : true}
             className={
               editItem
                 ? "btn btn-block btn-success mt-3 text-uppercase "
                 : "btn btn-block btn-primary mt-3 text-uppercase "
             }
           >
-            {editItem ? "edit item" : "add item"}
+            {editItem ? "edytuj" : "dodaj"}
           </button>
         </form>
       </div>

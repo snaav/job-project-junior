@@ -9,26 +9,31 @@ export default class App extends Component {
     items: [],
     id: uuid(),
     item: "",
+    kwota: "",
     editItem: false
   };
   handleChange = e => {
     this.setState({
-      item: e.target.value
+      [e.target.name]: e.target.value
     });
   };
   handleSubmit = e => {
     e.preventDefault();
     const newItem = {
       id: this.state.id,
-      title: this.state.item
+      title: this.state.item,
+      title1: this.state.kwota
     };
-    const updatedItems = [...this.state.items, newItem];
-    this.setState({
-      items: updatedItems,
-      item: "",
-      id: uuid(),
-      editItem: false
-    });
+    if (newItem.title.length > 4 && newItem.title1.length > 0) {
+      const updatedItems = [...this.state.items, newItem];
+      this.setState({
+        items: updatedItems,
+        item: "",
+        kwota: "",
+        id: uuid(),
+        editItem: false
+      });
+    }
   };
   clearList = () => {
     this.setState({
@@ -48,6 +53,8 @@ export default class App extends Component {
     this.setState({
       items: filteredItems,
       item: selectedItem.title,
+      kwota: selectedItem.title1,
+
       id: id,
       editItem: true
     });
@@ -58,9 +65,10 @@ export default class App extends Component {
       <div className="container">
         <div className="row">
           <div className="col-10 mx-auto col-md-8 mt-5">
-            <h3 className="text-capitalize text-center">todo input</h3>
+            <h4 className="text-capitalize text-left">Zadania</h4>
             <TodoInput
               item={this.state.item}
+              kwota={this.state.kwota}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
               editItem={this.state.editItem}

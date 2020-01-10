@@ -11,6 +11,7 @@ export default class TodoList extends Component {
             <TodoItem
               key={item.id}
               title={item.title}
+              title1={item.title1}
               handleDelete={() => handleDelete(item.id)}
               handleEdit={() => handleEdit(item.id)}
             ></TodoItem>
