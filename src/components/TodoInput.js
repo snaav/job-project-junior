@@ -16,7 +16,7 @@ export default class TodoInput extends Component {
               type="text"
               name="item"
               className="form-control text-capitalize"
-              placeholder="Nazwa zadania"
+              placeholder="Nazwa zadania (Min. 5 znaków)"
               value={item}
               onChange={handleChange}
             />
