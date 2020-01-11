@@ -24,7 +24,7 @@ export default class App extends Component {
       title: this.state.item,
       title1: this.state.kwota
     };
-    if (newItem.title.length > 4 && newItem.title1.length > 0) {
+    if (newItem.title.length > 0 && newItem.title1.length > 0) {
       const updatedItems = [...this.state.items, newItem];
       this.setState({
         items: updatedItems,
@@ -59,6 +59,11 @@ export default class App extends Component {
       editItem: true
     });
   };
+  sumAll = () => {
+    return this.state.items.reduce(function(prev, cur) {
+      return prev + Number(cur.title1);
+    }, 0);
+  };
 
   render() {
     return (
@@ -79,6 +84,7 @@ export default class App extends Component {
               clearList={this.clearList}
               handleDelete={this.handleDelete}
               handleEdit={this.handleEdit}
+              sumAll={this.sumAll()}
             ></TodoList>
           </div>
         </div>

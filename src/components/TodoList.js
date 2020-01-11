@@ -2,10 +2,39 @@ import React, { Component } from "react";
 import TodoItem from "./TodoItem";
 export default class TodoList extends Component {
   render() {
-    const { items, clearList, handleDelete, handleEdit } = this.props;
+    const { sumAll, items, clearList, handleDelete, handleEdit } = this.props;
     return (
       <ul className="list-group my-5">
-        <h3 className="text-capitalize text-center">todo list</h3>
+        <li className="list-group-item  text-capitalize d-flex justify-content-between my-0">
+          <div className="todo-icon">
+            <span className="mx-2" onClick={handleDelete}>
+              Nazwa
+              <i className="fas fa-pen"></i>
+            </span>
+            <span className="mx-2 text-danger" onClick={handleDelete}>
+              <i className="fas fa-trash"></i>
+            </span>
+          </div>
+          <div className="todo-icon">
+            <span className="mx-2" onClick={handleDelete}>
+              PLN
+              <i className="fas fa-pen"></i>
+            </span>
+            <span className="mx-2 text-danger" onClick={handleDelete}>
+              <i className="fas fa-trash"></i>
+            </span>
+          </div>
+          <div className="todo-icon">
+            <span className="mx-2" onClick={handleDelete}>
+              EUR <i className="fas fa-pen"></i>
+            </span>
+            <span className="mx-2 text-danger" onClick={handleDelete}>
+              <i className="fas fa-trash"></i>
+            </span>
+          </div>
+
+          <h6>Opcje</h6>
+        </li>
         {items.map(item => {
           return (
             <TodoItem
@@ -17,12 +46,15 @@ export default class TodoList extends Component {
             ></TodoItem>
           );
         })}
+        <h5 className="text-capitalize text-left mt-4">
+          Suma: {sumAll} PLN ({(sumAll / 4.8282).toFixed(2)} EUR)
+        </h5>
         <button
           type="button"
-          className="btn btn-danger btn-block text-uppercase mt-5"
+          className="btn btn-danger btn-block text-uppercase mt-3"
           onClick={clearList}
         >
-          clear list
+          Wyczyść wszystko
         </button>
       </ul>
     );

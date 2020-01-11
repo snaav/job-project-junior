@@ -7,11 +7,11 @@ export default class TodoInput extends Component {
       <div className="card card-body my-3">
         <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <div className="input-group-prepend">
+            {/* <div className="input-group-prepend">
               <div className="input-group-text bg-primary text-white">
-                <i className="fas fa-book"></i>
+                <i className="fas fa-book "></i>
               </div>
-            </div>
+            </div> */}
             <input
               type="text"
               name="item"
@@ -22,11 +22,11 @@ export default class TodoInput extends Component {
             />
           </div>
           <div className="input-group mt-3">
-            <div className="input-group-prepend">
+            {/* <div className="input-group-prepend">
               <div className="input-group-text bg-primary text-white">
                 <i className="fas fa-book"></i>
               </div>
-            </div>
+            </div> */}
             <input
               type="number"
               name="kwota"
@@ -36,7 +36,7 @@ export default class TodoInput extends Component {
               onChange={handleChange}
             />
           </div>
-
+          <h6 className="mt-3">1 euro = 4.8282</h6>
           <button
             type="submit"
             // disabled={kwota && item ? false : true}
