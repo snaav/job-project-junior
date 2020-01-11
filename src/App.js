@@ -24,16 +24,16 @@ export default class App extends Component {
       title: this.state.item,
       title1: this.state.kwota
     };
-    // if (newItem.title.length > 0 && newItem.title1.length > 0) {
-    const updatedItems = [...this.state.items, newItem];
-    this.setState({
-      items: updatedItems,
-      item: "",
-      kwota: "",
-      id: uuid(),
-      editItem: false
-    });
-    // }
+    if (newItem.title.length > 4 && newItem.title1.length > 0) {
+      const updatedItems = [...this.state.items, newItem];
+      this.setState({
+        items: updatedItems,
+        item: "",
+        kwota: "",
+        id: uuid(),
+        editItem: false
+      });
+    }
   };
   clearList = () => {
     this.setState({
@@ -65,6 +65,46 @@ export default class App extends Component {
     }, 0);
   };
 
+  sortAscName = () => {
+    // const sortedItems = this.state.items.sort(function (a, b) {
+    //   return a.title1 - b.title1;
+    // });
+    // this.setState({
+    //   items: sortedItems
+    // });
+    const sortedItemsName = this.state.items.sort(function(a, b) {
+      const nameA = a.title.toLowerCase(),
+        nameB = b.title.toLowerCase();
+      if (nameA < nameB)
+        //sort string ascending
+        return -1;
+      if (nameA > nameB) return 1;
+      return 0; //default return value (no sorting)
+    });
+    this.setState({
+      items: sortedItemsName
+    });
+  };
+  sortDescName = () => {
+    // const sortedItems = this.state.items.sort(function (a, b) {
+    //   return a.title1 - b.title1;
+    // });
+    // this.setState({
+    //   items: sortedItems
+    // });
+    const sortedItemsName = this.state.items.sort(function(a, b) {
+      const nameA = a.title.toLowerCase(),
+        nameB = b.title.toLowerCase();
+      if (nameA < nameB)
+        //sort string ascending
+        return -1;
+      if (nameA > nameB) return 1;
+      return 0; //default return value (no sorting)
+    });
+    this.setState({
+      items: sortedItemsName.reverse()
+    });
+  };
   sortAsc = () => {
     const sortedItems = this.state.items.sort(function(a, b) {
       return a.title1 - b.title1;
@@ -104,6 +144,8 @@ export default class App extends Component {
               sumAll={this.sumAll()}
               sortAsc={this.sortAsc}
               sortDesc={this.sortDesc}
+              sortAscName={this.sortAscName}
+              sortDescName={this.sortDescName}
             ></TodoList>
           </div>
         </div>
