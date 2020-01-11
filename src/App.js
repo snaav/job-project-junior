@@ -24,16 +24,16 @@ export default class App extends Component {
       title: this.state.item,
       title1: this.state.kwota
     };
-    if (newItem.title.length > 0 && newItem.title1.length > 0) {
-      const updatedItems = [...this.state.items, newItem];
-      this.setState({
-        items: updatedItems,
-        item: "",
-        kwota: "",
-        id: uuid(),
-        editItem: false
-      });
-    }
+    // if (newItem.title.length > 0 && newItem.title1.length > 0) {
+    const updatedItems = [...this.state.items, newItem];
+    this.setState({
+      items: updatedItems,
+      item: "",
+      kwota: "",
+      id: uuid(),
+      editItem: false
+    });
+    // }
   };
   clearList = () => {
     this.setState({
@@ -65,6 +65,23 @@ export default class App extends Component {
     }, 0);
   };
 
+  sortAsc = () => {
+    const sortedItems = this.state.items.sort(function(a, b) {
+      return a.title1 - b.title1;
+    });
+    this.setState({
+      items: sortedItems
+    });
+  };
+  sortDesc = () => {
+    const sortedItems = this.state.items.sort(function(a, b) {
+      return a.title1 - b.title1;
+    });
+    this.setState({
+      items: sortedItems.reverse()
+    });
+  };
+
   render() {
     return (
       <div className="container">
@@ -85,6 +102,8 @@ export default class App extends Component {
               handleDelete={this.handleDelete}
               handleEdit={this.handleEdit}
               sumAll={this.sumAll()}
+              sortAsc={this.sortAsc}
+              sortDesc={this.sortDesc}
             ></TodoList>
           </div>
         </div>

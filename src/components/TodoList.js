@@ -2,16 +2,41 @@ import React, { Component } from "react";
 import TodoItem from "./TodoItem";
 export default class TodoList extends Component {
   render() {
-    const { sumAll, items, clearList, handleDelete, handleEdit } = this.props;
+    const {
+      sortAsc,
+      sortDesc,
+      sumAll,
+      items,
+      clearList,
+      handleDelete,
+      handleEdit
+    } = this.props;
     return (
       <ul className="list-group my-5">
         <li className="list-group-item  text-capitalize d-flex justify-content-between my-0">
-          <div className="todo-icon">
-            <span className="mx-2" onClick={handleDelete}>
-              Nazwa
-              <i className="fas fa-pen"></i>
+          <div className="todo-icon ">
+            Nazwa
+            <span className="ml-1 text-success" onClick={sortDesc}>
+              <i className="fas fa-arrow-circle-down"></i>{" "}
             </span>
-            <span className="mx-2 text-danger" onClick={handleDelete}>
+            <span className="mx-0 text-danger" onClick={sortAsc}>
+              <i className="fas fa-arrow-circle-up"></i>{" "}
+            </span>
+            PLN
+            <span className="ml-0 text-success" onClick={sortDesc}>
+              <i className="fas fa-arrow-circle-down"></i>{" "}
+            </span>
+            <span className="mx-0 text-danger" onClick={sortAsc}>
+              <i className="fas fa-arrow-circle-up"></i>{" "}
+            </span>
+            EUR
+            <span className="ml-1 text-success" onClick={sortDesc}>
+              <i className="fas fa-arrow-circle-down"></i>{" "}
+            </span>
+            <span className="mx-0 text-danger" onClick={sortAsc}>
+              <i className="fas fa-arrow-circle-up"></i>{" "}
+            </span>
+            {/* <span className="mx-2 text-danger" onClick={handleDelete}>
               <i className="fas fa-trash"></i>
             </span>
           </div>
@@ -30,9 +55,8 @@ export default class TodoList extends Component {
             </span>
             <span className="mx-2 text-danger" onClick={handleDelete}>
               <i className="fas fa-trash"></i>
-            </span>
+            </span> */}
           </div>
-
           <h6>Opcje</h6>
         </li>
         {items.map(item => {
