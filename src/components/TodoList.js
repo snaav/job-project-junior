@@ -19,31 +19,30 @@ export default class TodoList extends Component {
           <thead>
             <tr>
               <th scope="col">
-                {" "}
-                Nazwa
-                <span className="ml-1 text-success" onClick={sortDescName}>
-                  <i className="fas fa-arrow-circle-down"></i>{" "}
+                Nazwa zadania
+                <span className="ml-1 text-warning" onClick={sortAscName}>
+                  <i className="fas fa-arrow-circle-up"></i>
                 </span>
-                <span className="mr-4 text-danger" onClick={sortAscName}>
-                  <i className="fas fa-arrow-circle-up"></i>{" "}
-                </span>
-              </th>
-              <th scope="col">
-                PLN
-                <span className="ml-0 text-success" onClick={sortDesc}>
-                  <i className="fas fa-arrow-circle-down"></i>{" "}
-                </span>
-                <span className="mr-4 text-danger" onClick={sortAsc}>
-                  <i className="fas fa-arrow-circle-up"></i>{" "}
+                <span className="mx-0 text-warning" onClick={sortDescName}>
+                  <i className="fas fa-arrow-circle-down"></i>
                 </span>
               </th>
               <th scope="col">
-                EUR
-                <span className="ml-1 text-success" onClick={sortDesc}>
-                  <i className="fas fa-arrow-circle-down"></i>{" "}
+                Kwota w PLN
+                <span className="ml-1 text-warning" onClick={sortAsc}>
+                  <i className="fas fa-arrow-circle-up"></i>
                 </span>
-                <span className="mx-0 text-danger" onClick={sortAsc}>
-                  <i className="fas fa-arrow-circle-up"></i>{" "}
+                <span className="mx-0 text-warning" onClick={sortDesc}>
+                  <i className="fas fa-arrow-circle-down"></i>
+                </span>
+              </th>
+              <th scope="col">
+                Kwota w EUR
+                <span className="ml-1 text-warning" onClick={sortAsc}>
+                  <i className="fas fa-arrow-circle-up"></i>
+                </span>
+                <span className="mx-0 text-warning" onClick={sortDesc}>
+                  <i className="fas fa-arrow-circle-down"></i>
                 </span>
               </th>
               <th scope="col">Opcje</th>

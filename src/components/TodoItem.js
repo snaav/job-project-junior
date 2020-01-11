@@ -23,13 +23,18 @@ export default class TodoItem extends Component {
           <h6>{(title1 / 4.8282).toFixed(2)} EUR</h6>
         </td>
         <td>
-          {" "}
-          <span className="mx-2 text-success" onClick={handleEdit}>
-            <i className="fas fa-pen"></i>
-          </span>
-          <span className="mx-2 text-danger" onClick={handleDelete}>
-            <i className="fas fa-trash"></i>
-          </span>
+          <div>
+            <span className="mx-2 text-success" onClick={handleEdit}>
+              <i className="fas fa-pen"></i>
+            </span>
+            Edytuj
+          </div>
+          <div>
+            <span className="mx-2 text-danger" onClick={handleDelete}>
+              <i className="fas fa-trash"></i>
+            </span>
+            Usuń
+          </div>
         </td>
       </tr>
     );
