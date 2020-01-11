@@ -20,28 +20,28 @@ export default class TodoList extends Component {
             <tr>
               <th scope="col">
                 Nazwa zadania
-                <span className="ml-1 text-warning" onClick={sortAscName}>
+                <span className="mx-1 text-success" onClick={sortAscName}>
                   <i className="fas fa-arrow-circle-up"></i>
                 </span>
-                <span className="mx-0 text-warning" onClick={sortDescName}>
+                <span className="mx-0 text-danger" onClick={sortDescName}>
                   <i className="fas fa-arrow-circle-down"></i>
                 </span>
               </th>
               <th scope="col">
                 Kwota w PLN
-                <span className="ml-1 text-warning" onClick={sortAsc}>
+                <span className="mx-1 text-success" onClick={sortAsc}>
                   <i className="fas fa-arrow-circle-up"></i>
                 </span>
-                <span className="mx-0 text-warning" onClick={sortDesc}>
+                <span className="mx-0 text-danger" onClick={sortDesc}>
                   <i className="fas fa-arrow-circle-down"></i>
                 </span>
               </th>
               <th scope="col">
                 Kwota w EUR
-                <span className="ml-1 text-warning" onClick={sortAsc}>
+                <span className="mx-1 text-success" onClick={sortAsc}>
                   <i className="fas fa-arrow-circle-up"></i>
                 </span>
-                <span className="mx-0 text-warning" onClick={sortDesc}>
+                <span className="mx-0 text-danger" onClick={sortDesc}>
                   <i className="fas fa-arrow-circle-down"></i>
                 </span>
               </th>
