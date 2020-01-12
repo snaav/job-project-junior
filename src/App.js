@@ -10,7 +10,13 @@ export default class App extends Component {
     id: uuid(),
     item: "",
     kwota: "",
-    editItem: false
+    editItem: false,
+    showInfo: false
+  };
+  handleInfo = () => {
+    this.setState({
+      showInfo: !this.state.showInfo
+    });
   };
   handleChange = e => {
     this.setState({
@@ -127,7 +133,52 @@ export default class App extends Component {
       <div className="container">
         <div className="row">
           <div className="col-12 mx-auto col-xl-12 mt-5">
-            <h4 className="text-capitalize text-left">Zadania</h4>
+            <div className="card card-body my-3">
+              <form>
+                <div className="input-group">
+                  {/* <div className="input-group-prepend">
+              <div className="input-group-text bg-primary text-white">
+                <i className="fas fa-book "></i>
+              </div>
+            </div> */}
+                  <input
+                    type="text"
+                    name="item"
+                    className="form-control text-capitalize"
+                    placeholder="Nazwa firmy"
+                    // value={item}
+                    // onChange={handleChange}
+                  />
+                </div>
+                <div className="input-group mt-3">
+                  <input
+                    type="text"
+                    name="kwota"
+                    className="form-control text-capitalize"
+                    placeholder="Pracownik"
+                    // value={kwota}
+                    // onChange={handleChange}
+                  />
+
+                  <div className="input-group-append">
+                    <button
+                      type="button"
+                      className="btn btn-outline-secondary text-uppercase btn-block"
+                      onClick={this.handleInfo}
+                    >
+                      <i className="fas fa-chevron-down"> </i>
+                    </button>
+                  </div>
+                </div>
+                <div> {this.state.showInfo && <p>kupa</p>}</div>
+              </form>
+            </div>
+            <h4
+              className="text-capitalize 
+            text-left"
+            >
+              Zadania
+            </h4>
             <TodoInput
               item={this.state.item}
               kwota={this.state.kwota}

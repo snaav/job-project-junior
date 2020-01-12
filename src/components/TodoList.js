@@ -15,7 +15,7 @@ export default class TodoList extends Component {
     } = this.props;
     return (
       <ul className="list-group my-5">
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">
