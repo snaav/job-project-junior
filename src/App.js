@@ -132,7 +132,7 @@ export default class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-12 mx-auto col-xl-12 mt-5">
+          <div className="col-12 mx-auto col-md-12 mt-5">
             <div className="card card-body my-3">
               <form>
                 <div className="input-group">
@@ -143,8 +143,8 @@ export default class App extends Component {
             </div> */}
                   <input
                     type="text"
-                    name="item"
-                    className="form-control text-capitalize"
+                    name="firma"
+                    className=" form-control text-capitalize"
                     placeholder="Nazwa firmy"
                     // value={item}
                     // onChange={handleChange}
@@ -153,8 +153,8 @@ export default class App extends Component {
                 <div className="input-group mt-3">
                   <input
                     type="text"
-                    name="kwota"
-                    className="form-control text-capitalize"
+                    name="pracownik"
+                    className="border-right-0 form-control text-capitalize"
                     placeholder="Pracownik"
                     // value={kwota}
                     // onChange={handleChange}
@@ -163,18 +163,39 @@ export default class App extends Component {
                   <div className="input-group-append">
                     <button
                       type="button"
-                      className="btn btn-outline-secondary text-uppercase btn-block"
+                      className="btn btn-outline-secondary     text-uppercase btn-block"
                       onClick={this.handleInfo}
                     >
                       <i className="fas fa-chevron-down"> </i>
                     </button>
                   </div>
                 </div>
-                <div> {this.state.showInfo && <p>kupa</p>}</div>
+                {this.state.showInfo && (
+                  <div className="input-group">
+                    {/* <div className="input-group-prepend">
+              <div className="input-group-text bg-primary text-white">
+                <i className="fas fa-book "></i>
+              </div>
+            </div> */}
+                    <input
+                      type="text"
+                      name="item"
+                      className=" mt-3 border-top-0 border-left-0 border-right-0 form-control text-capitalize"
+                      placeholder="Szukaj"
+                      // value={item}
+                      // onChange={handleChange}
+                    />
+                    <div className="input-group-append">
+                      <div className="mt-3 border-top-0 border-left-0 border-right-0 input-group-text  bg-white">
+                        <i className="fas fa-search"> </i>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </form>
             </div>
             <h4
-              className="text-capitalize 
+              className="mt-5 text-capitalize 
             text-left"
             >
               Zadania
