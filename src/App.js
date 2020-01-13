@@ -3,6 +3,9 @@ import uuid from "uuid";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+import { employeeData } from "./employeeData";
+import Employee from "./components/Employee";
+
 //showing vs-code github setup
 export default class App extends Component {
   state = {
@@ -11,7 +14,8 @@ export default class App extends Component {
     item: "",
     kwota: "",
     editItem: false,
-    showInfo: false
+    showInfo: false,
+    employees: employeeData
   };
   handleInfo = () => {
     this.setState({
@@ -190,10 +194,20 @@ export default class App extends Component {
                         <i className="fas fa-search"> </i>
                       </div>
                     </div>
+                    <div className="employeeList">
+                      {this.state.employees.map(employee => (
+                        <Employee
+                          key={employee.id}
+                          employee={employee}
+                        ></Employee>
+                      ))}{" "}
+                    </div>
                   </div>
                 )}
               </form>
             </div>
+          </div>
+          <div className="col-12 mx-auto col-md-12 mt-5">
             <h4
               className="mt-5 text-capitalize 
             text-left"
