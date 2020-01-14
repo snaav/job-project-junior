@@ -17,7 +17,8 @@ export default class App extends Component {
     editItem: false,
     showInfo: false,
     employees: employeeData,
-    szukaj: ""
+    szukaj: "",
+    currentEmployee: null
   };
 
   //handle filtering
@@ -58,8 +59,11 @@ export default class App extends Component {
   // };
 
   //----------------------------------------------
-  handleSelect = idd => {
-    console.log(idd);
+  handleSelect = employee => {
+    console.log(employee);
+
+    this.state.currentEmployee = employee.pracownik;
+    this.forceUpdate();
 
     // const selectedPracownik = this.state.employees.find(
     //   item => item.idd === idd
@@ -80,6 +84,14 @@ export default class App extends Component {
       [e.target.name]: e.target.value
     });
     console.log(e.target.value);
+  };
+
+  handleSearch = e => {
+    let filterText = e.target.value;
+    this.state.employees = employeeData.filter(
+      e => e.pracownik.indexOf(filterText) !== -1
+    );
+    this.forceUpdate();
   };
   handleSubmit = e => {
     e.preventDefault();
@@ -214,7 +226,7 @@ export default class App extends Component {
                     name="pracownik"
                     className="border-right-0 form-control text-capitalize"
                     placeholder="Pracownik"
-                    value={this.state.employees.pracownik}
+                    value={this.state.currentEmployee}
                     onChange={this.handleChange}
                   />
 
@@ -241,7 +253,7 @@ export default class App extends Component {
                       className=" mt-3 border-top-0 border-left-0 border-right-0 form-control text-capitalize"
                       placeholder="Szukaj"
                       // value={item}
-                      onChange={this.handleChange3}
+                      onChange={this.handleSearch}
                     />
                     <div className="input-group-append">
                       <div className="mt-3 border-top-0 border-left-0 border-right-0 input-group-text  bg-white">
@@ -252,7 +264,7 @@ export default class App extends Component {
                       {this.state.employees.map(employee => (
                         <div
                           className="input-group"
-                          onClick={() => this.handleSelect(employee.pracownik)}
+                          onClick={() => this.handleSelect(employee)}
                         >
                           <Employee
                             key={employee.idd}
