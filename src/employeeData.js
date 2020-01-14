@@ -18,5 +18,30 @@ export const employeeData = [
     idd: 4,
     img: "4",
     pracownik: "Dominik Ryński"
+  },
+  {
+    idd: 5,
+    img: "5",
+    pracownik: "Józef Czekaj"
+  },
+  {
+    idd: 6,
+    img: "6",
+    pracownik: "Norbert Nowak"
+  },
+  {
+    idd: 7,
+    img: "7",
+    pracownik: "Zygmunt Zuski"
+  },
+  {
+    idd: 8,
+    img: "8",
+    pracownik: "Stanisław Jamróz"
+  },
+  {
+    idd: 9,
+    img: "9",
+    pracownik: "Rafał Bondyra"
   }
 ];
