@@ -1,17 +1,23 @@
 import React, { Component } from "react";
+import "./employee.css";
+
 export default class Employee extends Component {
   render() {
-    const { id, img, name, surname } = this.props.employee;
-
+    const { idd, img, pracownik } = this.props.employee;
+    const url = `https://randomuser.me/api/portraits/thumb/men/${img}.jpg`;
     return (
-      <article className="employee">
-        <div className="employee-info">
-          <h3>
-            {`${name} 
-            ${surname}`}
-          </h3>
-        </div>
-      </article>
+      <table className="employee">
+        <tbody>
+          <tr>
+            <td>
+              <img src={url} alt="employee" className="rounded-circle" />
+            </td>
+            <td>
+              <h5>{pracownik}</h5>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     );
   }
 }

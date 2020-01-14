@@ -1,29 +1,22 @@
 export const employeeData = [
   {
-    id: 1,
-    // img: "./img/newyork.jpeg",
-    name: "Marcin",
-    surname: "Kowalski"
+    idd: 1,
+    img: "1",
+    pracownik: "Marcin Kowalski"
   },
   {
-    id: 2,
-    // img: "./img/newyork.jpeg",
-
-    name: "Adam",
-    surname: "Nowak"
+    idd: 2,
+    img: "2",
+    pracownik: "Adam Nowak"
   },
   {
-    id: 3,
-    // img: "./img/newyork.jpeg",
-
-    name: "Marta",
-    surname: "Dąbrowska"
+    idd: 3,
+    img: "3",
+    pracownik: "Maciej Leńczowski"
   },
   {
-    id: 4,
-    // img: "./img/newyork.jpeg",
-
-    name: "Aneta",
-    surname: "Kowalczyk"
+    idd: 4,
+    img: "4",
+    pracownik: "Dominik Ryński"
   }
 ];

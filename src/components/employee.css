@@ -1,0 +1,9 @@
+.employee {
+  transition: all 0.3s linear;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.employee:hover {
+  background-color: #bae4fd;
+}

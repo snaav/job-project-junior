@@ -13,10 +13,63 @@ export default class App extends Component {
     id: uuid(),
     item: "",
     kwota: "",
+    pracownik: "",
     editItem: false,
     showInfo: false,
-    employees: employeeData
+    employees: employeeData,
+    szukaj: ""
   };
+
+  //handle filtering
+  handleChange3 = event => {
+    const name = event.target.name;
+    const value =
+      event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
+    this.setState(
+      {
+        [name]: value
+      },
+      this.sortData
+    );
+  };
+
+  // ----------------funkcja do wyszukiwania na zywo-----------------------
+  // sortData = () => {
+  //   const { storeProducts, pracownik, szukaj } = this.state;
+
+  //   let tempPrice = parseInt(price);
+
+  //   let tempProducts = [...storeProducts];
+
+  //   if (szukaj.length > 0) {
+  //     tempProducts = tempProducts.filter(item => {
+  //       let tempSearch = search.toLowerCase();
+  //       let tempTitle = item.title.toLowerCase().slice(0, search.length);
+  //       if (tempSearch === tempTitle) {
+  //         return item;
+  //       }
+  //     });
+  //   }
+  //   this.setState({
+  //     filteredProducts: tempProducts
+  //   });
+  // };
+
+  //----------------------------------------------
+  handleSelect = idd => {
+    console.log(idd);
+
+    // const selectedPracownik = this.state.employees.find(
+    //   item => item.idd === idd
+    // );
+
+    // this.setState({
+    //   pracownik: selectedPracownik.pracownik
+    // });
+  };
+
   handleInfo = () => {
     this.setState({
       showInfo: !this.state.showInfo
@@ -26,6 +79,7 @@ export default class App extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+    console.log(e.target.value);
   };
   handleSubmit = e => {
     e.preventDefault();
@@ -138,7 +192,7 @@ export default class App extends Component {
         <div className="row">
           <div className="col-12 mx-auto col-md-12 mt-5">
             <div className="card card-body my-3">
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <div className="input-group">
                   {/* <div className="input-group-prepend">
               <div className="input-group-text bg-primary text-white">
@@ -160,8 +214,8 @@ export default class App extends Component {
                     name="pracownik"
                     className="border-right-0 form-control text-capitalize"
                     placeholder="Pracownik"
-                    // value={kwota}
-                    // onChange={handleChange}
+                    value={this.state.employees.pracownik}
+                    onChange={this.handleChange}
                   />
 
                   <div className="input-group-append">
@@ -183,24 +237,29 @@ export default class App extends Component {
             </div> */}
                     <input
                       type="text"
-                      name="item"
+                      name="szukaj"
                       className=" mt-3 border-top-0 border-left-0 border-right-0 form-control text-capitalize"
                       placeholder="Szukaj"
                       // value={item}
-                      // onChange={handleChange}
+                      onChange={this.handleChange3}
                     />
                     <div className="input-group-append">
                       <div className="mt-3 border-top-0 border-left-0 border-right-0 input-group-text  bg-white">
                         <i className="fas fa-search"> </i>
                       </div>
                     </div>
-                    <div className="employeeList">
+                    <div className="input-group mx-auto mt-3">
                       {this.state.employees.map(employee => (
-                        <Employee
-                          key={employee.id}
-                          employee={employee}
-                        ></Employee>
-                      ))}{" "}
+                        <div
+                          className="input-group"
+                          onClick={() => this.handleSelect(employee.pracownik)}
+                        >
+                          <Employee
+                            key={employee.idd}
+                            employee={employee}
+                          ></Employee>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 )}
