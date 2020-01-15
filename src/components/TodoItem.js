@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { findAllByTitle } from "@testing-library/dom";
+import "./todoitem.css";
 
 export default class TodoItem extends Component {
   render() {
@@ -24,13 +25,13 @@ export default class TodoItem extends Component {
         </td>
         <td>
           <div>
-            <span className="mx-2 text-success" onClick={handleEdit}>
+            <span className="do mx-2 text-success" onClick={handleEdit}>
               <i className="fas fa-pen"></i>
             </span>
             Edytuj
           </div>
           <div>
-            <span className="mx-2 text-danger" onClick={handleDelete}>
+            <span className="do mx-2 text-danger" onClick={handleDelete}>
               <i className="fas fa-trash"></i>
             </span>
             Usuń

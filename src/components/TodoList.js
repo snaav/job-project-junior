@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import TodoItem from "./TodoItem";
+import "./todolist.css";
+
 export default class TodoList extends Component {
   render() {
     const {
@@ -20,28 +22,34 @@ export default class TodoList extends Component {
             <tr>
               <th scope="col">
                 Nazwa zadania
-                <span className="mx-1 text-success" onClick={sortAscName}>
+                <span
+                  className="filterek mx-1 text-success"
+                  onClick={sortAscName}
+                >
                   <i className="fas fa-arrow-circle-up"></i>
                 </span>
-                <span className="mx-0 text-danger" onClick={sortDescName}>
+                <span
+                  className="filterek mx-0 text-danger"
+                  onClick={sortDescName}
+                >
                   <i className="fas fa-arrow-circle-down"></i>
                 </span>
               </th>
               <th scope="col">
                 Kwota w PLN
-                <span className="mx-1 text-success" onClick={sortAsc}>
+                <span className="filterek mx-1 text-success" onClick={sortAsc}>
                   <i className="fas fa-arrow-circle-up"></i>
                 </span>
-                <span className="mx-0 text-danger" onClick={sortDesc}>
+                <span className="filterek mx-0 text-danger" onClick={sortDesc}>
                   <i className="fas fa-arrow-circle-down"></i>
                 </span>
               </th>
               <th scope="col">
                 Kwota w EUR
-                <span className="mx-1 text-success" onClick={sortAsc}>
+                <span className="filterek mx-1 text-success" onClick={sortAsc}>
                   <i className="fas fa-arrow-circle-up"></i>
                 </span>
-                <span className="mx-0 text-danger" onClick={sortDesc}>
+                <span className="filterek mx-0 text-danger" onClick={sortDesc}>
                   <i className="fas fa-arrow-circle-down"></i>
                 </span>
               </th>

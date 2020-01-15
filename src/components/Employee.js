@@ -3,7 +3,7 @@ import "./employee.css";
 
 export default class Employee extends Component {
   render() {
-    const { idd, img, pracownik } = this.props.employee;
+    const { img, pracownik } = this.props.employee;
     const url = `https://randomuser.me/api/portraits/thumb/men/${img}.jpg`;
     return (
       <table className="employee">

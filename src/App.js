@@ -205,7 +205,7 @@ export default class App extends Component {
           <div className="col-12 mx-auto col-md-12 mt-5">
             <div className="card card-body my-3">
               <form onSubmit={this.handleSubmit}>
-                <div className="input-group">
+                <div className="input-group was-validated">
                   {/* <div className="input-group-prepend">
               <div className="input-group-text bg-primary text-white">
                 <i className="fas fa-book "></i>
@@ -214,13 +214,16 @@ export default class App extends Component {
                   <input
                     type="text"
                     name="firma"
-                    className=" form-control text-capitalize"
+                    className="nazwafirmy form-control text-capitalize  "
                     placeholder="Nazwa firmy"
+                    id="validationTooltip01"
+                    required
                     // value={item}
                     // onChange={handleChange}
                   />
+                  <div className="invalid-feedback">Błąd</div>
                 </div>
-                <div className="input-group mt-3">
+                <div className=" input-group mt-3">
                   <input
                     type="text"
                     name="pracownik"
