@@ -18,7 +18,8 @@ export default class App extends Component {
     showInfo: false,
     employees: employeeData,
     szukaj: "",
-    currentEmployee: null
+    currentEmployee: "",
+    clickedEmployee: false
   };
 
   //handle filtering
@@ -63,6 +64,8 @@ export default class App extends Component {
     console.log(employee);
 
     this.state.currentEmployee = employee.pracownik;
+    this.state.clickedEmployee = !this.state.clickedEmployee;
+
     this.forceUpdate();
 
     // const selectedPracownik = this.state.employees.find(
@@ -197,7 +200,6 @@ export default class App extends Component {
       items: sortedItems.reverse()
     });
   };
-
   render() {
     return (
       <div className="container">
@@ -266,7 +268,11 @@ export default class App extends Component {
                     <div className="input-group mx-auto mt-3">
                       {this.state.employees.map(employee => (
                         <div
-                          className="input-group"
+                          className={
+                            this.state.clickedEmployee
+                              ? "input-group"
+                              : "input-group"
+                          }
                           onClick={() => this.handleSelect(employee)}
                         >
                           <Employee
