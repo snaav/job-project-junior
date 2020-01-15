@@ -214,8 +214,8 @@ export default class App extends Component {
                   <input
                     type="text"
                     name="firma"
-                    className="nazwafirmy form-control text-capitalize  "
-                    placeholder="Nazwa firmy"
+                    className="nazwafirmy form-control "
+                    placeholder="Nazwa Firmy (pole obowiązkowe)"
                     id="validationTooltip01"
                     required
                     // value={item}
@@ -227,8 +227,8 @@ export default class App extends Component {
                   <input
                     type="text"
                     name="pracownik"
-                    className="border-right-0 form-control text-capitalize"
-                    placeholder="Pracownik"
+                    className="border-right-0 form-control "
+                    placeholder="Pracownik (kliknij w przycisk po prawej stronie by rozwinąć listę)"
                     value={this.state.currentEmployee}
                     onChange={this.handleChange}
                   />
@@ -236,7 +236,7 @@ export default class App extends Component {
                   <div className="input-group-append">
                     <button
                       type="button"
-                      className="btn btn-outline-secondary     text-uppercase btn-block"
+                      className="btn btn-outline-secondary text-uppercase btn-block"
                       onClick={this.handleInfo}
                     >
                       <i className="fas fa-chevron-down"> </i>

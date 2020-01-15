@@ -15,8 +15,8 @@ export default class TodoInput extends Component {
             <input
               type="text"
               name="item"
-              className="form-control text-capitalize"
-              placeholder="Nazwa zadania (Min. 5 znaków)"
+              className="form-control"
+              placeholder="Nazwa Zadania (min. 5 znaków)"
               value={item}
               onChange={handleChange}
             />
@@ -30,8 +30,8 @@ export default class TodoInput extends Component {
             <input
               type="number"
               name="kwota"
-              className="form-control text-capitalize"
-              placeholder="Kwota w PLN"
+              className="form-control"
+              placeholder="Kwota w PLN (tylko liczby!)"
               value={kwota}
               onChange={handleChange}
             />
